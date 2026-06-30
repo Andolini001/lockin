@@ -12,7 +12,7 @@ export function AppHeader({ title, subtitle, user }: AppHeaderProps) {
   return (
     <header className="mb-6 flex items-center justify-between gap-4">
       <div className="min-w-0">
-        <p className="text-sm font-bold text-cyan-100/80">{subtitle}</p>
+        <p className="text-sm font-bold text-cyan-100/82">{subtitle}</p>
         <h1 className="mt-1 text-3xl font-black leading-tight text-white sm:text-5xl">{title}</h1>
       </div>
       <div className="flex shrink-0 items-center gap-3">

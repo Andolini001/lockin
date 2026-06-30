@@ -16,15 +16,15 @@ type LiquidButtonProps = {
 
 const variantClasses: Record<LiquidButtonVariant, string> = {
   primary:
-    "bg-[linear-gradient(135deg,#47f4d1,#c8ff5c)] text-[#071017] shadow-[0_20px_70px_rgba(73,245,209,0.22)] hover:shadow-[0_26px_90px_rgba(200,255,92,0.26)]",
+    "bg-[linear-gradient(135deg,#55f7d8_0%,#baff58_58%,#ffe485_100%)] text-[#071017] shadow-[0_20px_70px_rgba(73,245,209,0.24),inset_0_1px_0_rgba(255,255,255,0.38)] hover:shadow-[0_28px_96px_rgba(200,255,92,0.28),inset_0_1px_0_rgba(255,255,255,0.42)]",
   secondary:
-    "border border-white/15 bg-white/[0.09] text-white hover:bg-white/[0.14] hover:border-cyan-100/30",
+    "border border-white/16 bg-white/[0.085] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_14px_38px_rgba(0,0,0,0.2)] hover:bg-white/[0.13] hover:border-cyan-100/34",
   ghost: "text-[var(--text-muted)] hover:bg-white/[0.08] hover:text-white",
 };
 
 function classes(variant: LiquidButtonVariant, className: string) {
   return [
-    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-black transition duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/80 disabled:pointer-events-none disabled:opacity-50",
+    "liquid-button pressable inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-black transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/80 disabled:pointer-events-none disabled:opacity-50",
     variantClasses[variant],
     className,
   ]

@@ -56,13 +56,13 @@ export default function DashboardPage() {
               </div>
 
               <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
-                <div className="rounded-[22px] bg-white/[0.06] p-3 sm:rounded-[26px] sm:p-4">
+                <div className="premium-stat rounded-[22px] p-3 sm:rounded-[26px] sm:p-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-white/44 sm:text-xs sm:tracking-[0.18em]">
                     Награда
                   </p>
                   <p className="mt-2 text-lg font-black text-lime-200 sm:text-2xl">+{reward}</p>
                 </div>
-                <div className="rounded-[22px] bg-white/[0.06] p-3 sm:rounded-[26px] sm:p-4">
+                <div className="premium-stat rounded-[22px] p-3 sm:rounded-[26px] sm:p-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-white/44 sm:text-xs sm:tracking-[0.18em]">
                     Время
                   </p>
@@ -71,7 +71,7 @@ export default function DashboardPage() {
                     {mockDailyQuest.durationMinutes}
                   </p>
                 </div>
-                <div className="rounded-[22px] bg-white/[0.06] p-3 sm:rounded-[26px] sm:p-4">
+                <div className="premium-stat rounded-[22px] p-3 sm:rounded-[26px] sm:p-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-white/44 sm:text-xs sm:tracking-[0.18em]">
                     Категория
                   </p>

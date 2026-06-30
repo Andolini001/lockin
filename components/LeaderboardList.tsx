@@ -17,8 +17,8 @@ export function LeaderboardList({ entries, currentUserId }: LeaderboardListProps
         return (
           <GlassCard
             className={[
-              "p-4",
-              active ? "border-lime-200/50 bg-lime-300/[0.09]" : "",
+              "pressable p-4",
+              active ? "border-lime-200/50 bg-lime-300/[0.09] shadow-[0_24px_70px_rgba(200,255,92,0.08)]" : "",
             ].join(" ")}
             key={entry.userId}
           >

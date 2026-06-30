@@ -31,7 +31,7 @@ export function UploadProof({ quest }: UploadProofProps) {
   if (submitted) {
     return (
       <GlassCard className="p-6 text-center">
-        <CheckCircle2 className="mx-auto h-14 w-14 text-lime-300" />
+        <CheckCircle2 className="reward-aura mx-auto h-14 w-14 text-lime-300" />
         <h2 className="mt-5 text-3xl font-black text-white">Proof отправлен.</h2>
         <p className="mt-3 text-[var(--text-muted)]">Ты почти закрыл день. Осталось дождаться подтверждения.</p>
         <LiquidButton className="mt-6 w-full" href="/share">
@@ -43,17 +43,17 @@ export function UploadProof({ quest }: UploadProofProps) {
 
   return (
     <GlassCard className="p-5">
-      <div className="relative z-10 space-y-5">
+      <div className="relative z-10 space-y-4 sm:space-y-5">
         <div>
           <p className="text-sm font-bold text-cyan-100">Выбранный квест</p>
-          <h2 className="mt-1 text-3xl font-black text-white">{quest.title}</h2>
-          <p className="mt-3 text-sm leading-6 text-[var(--text-muted)]">
+          <h2 className="mt-1 text-2xl font-black leading-tight text-white sm:text-3xl">{quest.title}</h2>
+          <p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--text-muted)] sm:mt-3 sm:line-clamp-none">
             Загрузи фото, видео или комментарий. В MVP proof сохраняется локально, без Supabase ключей.
           </p>
         </div>
 
-        <label className="flex min-h-44 cursor-pointer flex-col items-center justify-center rounded-[28px] border border-dashed border-cyan-100/32 bg-cyan-300/[0.06] p-6 text-center transition hover:bg-cyan-300/[0.1]">
-          <UploadCloud className="h-10 w-10 text-cyan-100" />
+        <label className="pressable flex min-h-36 cursor-pointer flex-col items-center justify-center rounded-[28px] border border-dashed border-cyan-100/36 bg-[radial-gradient(circle_at_50%_0%,rgba(73,245,209,0.13),transparent_62%),rgba(73,245,209,0.055)] p-5 text-center transition hover:bg-cyan-300/[0.1] sm:min-h-44 sm:p-6">
+          <UploadCloud className="reward-aura h-10 w-10 text-cyan-100" />
           <span className="mt-4 text-base font-black text-white">
             {fileName ?? "Нажми, чтобы выбрать proof"}
           </span>

@@ -12,7 +12,8 @@ export function ProgressRing({ value, label, caption, size = 96 }: ProgressRingP
   const offset = circumference - (normalized / 100) * circumference;
 
   return (
-    <div className="relative grid place-items-center" style={{ height: size, width: size }}>
+    <div className="relative grid place-items-center reward-aura" style={{ height: size, width: size }}>
+      <div className="absolute inset-3 rounded-full bg-cyan-300/10 blur-xl" />
       <svg aria-hidden="true" className="-rotate-90" height={size} viewBox="0 0 100 100" width={size}>
         <circle
           cx="50"
@@ -21,6 +22,14 @@ export function ProgressRing({ value, label, caption, size = 96 }: ProgressRingP
           r={radius}
           stroke="rgba(255,255,255,0.11)"
           strokeWidth="9"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          fill="none"
+          r="31"
+          stroke="rgba(255,255,255,0.08)"
+          strokeWidth="1"
         />
         <circle
           cx="50"

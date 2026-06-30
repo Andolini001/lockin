@@ -23,7 +23,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-0 bottom-4 z-50 mx-auto flex w-[min(calc(100%-24px),520px)] items-center justify-between rounded-full border border-white/15 bg-[#0b1020]/72 px-2 py-2 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+    <nav className="nav-dock fixed inset-x-0 bottom-4 z-50 mx-auto flex w-[min(calc(100%-24px),540px)] items-center justify-between rounded-full border border-white/16 px-2 py-2 backdrop-blur-2xl">
       {navItems.map((item) => {
         const active = pathname === item.href;
         const Icon = item.icon;
@@ -32,16 +32,22 @@ export function BottomNav() {
           <Link
             aria-current={active ? "page" : undefined}
             className={[
-              "flex min-h-12 flex-1 flex-col items-center justify-center gap-1 rounded-full px-2 text-[11px] font-extrabold transition",
+              "pressable relative flex min-h-12 flex-1 flex-col items-center justify-center gap-1 rounded-full px-2 text-[11px] font-extrabold transition",
               active
-                ? "bg-white text-[#071017] shadow-[0_12px_36px_rgba(73,245,209,0.24)]"
-                : "text-white/58 hover:bg-white/[0.07] hover:text-white",
+                ? "bg-[linear-gradient(180deg,#ffffff,#dffcf8)] text-[#071017] shadow-[0_14px_40px_rgba(73,245,209,0.24),inset_0_1px_0_rgba(255,255,255,0.8)]"
+                : "text-white/56 hover:bg-white/[0.075] hover:text-white",
             ].join(" ")}
             href={item.href}
             key={item.href}
           >
-            <Icon className="h-5 w-5" strokeWidth={active ? 2.7 : 2.2} />
+            <Icon
+              className={["h-5 w-5", active ? "reward-aura" : ""].join(" ")}
+              strokeWidth={active ? 2.7 : 2.2}
+            />
             <span>{item.label}</span>
+            {active ? (
+              <span className="absolute -bottom-1 h-1 w-5 rounded-full bg-[linear-gradient(90deg,#49f5d1,#c8ff5c)] shadow-[0_0_16px_rgba(73,245,209,0.5)]" />
+            ) : null}
           </Link>
         );
       })}

@@ -16,8 +16,8 @@ export function StreakBar({ streak }: StreakBarProps) {
               className={[
                 "grid aspect-square w-full min-w-0 place-items-center rounded-2xl border text-xs font-black transition",
                 filled
-                  ? "border-lime-200/60 bg-lime-300 text-[#0a120b] shadow-[0_12px_30px_rgba(200,255,92,0.18)]"
-                  : "border-white/10 bg-white/[0.06] text-white/42",
+                  ? "animate-streak-pop border-lime-200/70 bg-[linear-gradient(145deg,#d9ff6a,#9eff54)] text-[#0a120b] shadow-[0_14px_34px_rgba(200,255,92,0.24),inset_0_1px_0_rgba(255,255,255,0.45)]"
+                  : "border-white/10 bg-white/[0.055] text-white/42 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]",
               ].join(" ")}
             >
               {filled ? "✓" : ""}

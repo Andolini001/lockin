@@ -45,9 +45,9 @@ export default function QuestsPage() {
             {categoryFilters.map((filter) => (
               <button
                 className={[
-                  "shrink-0 rounded-full px-4 py-2 text-sm font-black transition",
+                  "pressable shrink-0 rounded-full px-4 py-2 text-sm font-black transition",
                   category === filter.value
-                    ? "bg-white text-[#071017]"
+                    ? "bg-[linear-gradient(180deg,#ffffff,#e8fff8)] text-[#071017] shadow-[0_12px_34px_rgba(73,245,209,0.18)]"
                     : "border border-white/10 bg-white/[0.07] text-white/62 hover:text-white",
                 ].join(" ")}
                 key={filter.value}
@@ -62,9 +62,9 @@ export default function QuestsPage() {
             {difficultyFilters.map((filter) => (
               <button
                 className={[
-                  "shrink-0 rounded-full px-4 py-2 text-sm font-black transition",
+                  "pressable shrink-0 rounded-full px-4 py-2 text-sm font-black transition",
                   difficulty === filter.value
-                    ? "bg-lime-300 text-[#071017]"
+                    ? "bg-[linear-gradient(135deg,#d9ff6a,#49f5d1)] text-[#071017] shadow-[0_12px_34px_rgba(200,255,92,0.18)]"
                     : "border border-white/10 bg-white/[0.06] text-white/55 hover:text-white",
                 ].join(" ")}
                 key={filter.value}

@@ -50,7 +50,7 @@ export default function ProfilePage() {
                 ["8", "лучший streak"],
                 [`#${userRank}`, "место в рейтинге"],
               ].map(([value, label]) => (
-                <GlassCard className="p-4" key={label}>
+                <GlassCard className="pressable p-4" key={label}>
                   <div className="relative z-10">
                     <p className="text-3xl font-black text-white">{value}</p>
                     <p className="mt-1 text-sm text-white/48">{label}</p>
@@ -64,7 +64,7 @@ export default function ProfilePage() {
                 <h2 className="text-2xl font-black text-white">Бейджи</h2>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {mockBadges.map((badge) => (
-                    <div className="rounded-[24px] border border-white/10 bg-white/[0.06] p-4" key={badge.id}>
+                    <div className="pressable premium-stat rounded-[24px] p-4" key={badge.id}>
                       <p className="font-black text-white">{badge.title}</p>
                       <p className="mt-1 text-sm text-white/48">{badge.description}</p>
                     </div>

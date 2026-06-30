@@ -25,9 +25,9 @@ export default function LeaderboardPage() {
           {scopes.map((item) => (
             <button
               className={[
-                "rounded-full px-4 py-2 text-sm font-black transition",
+                "pressable rounded-full px-4 py-2 text-sm font-black transition",
                 scope === item
-                  ? "bg-white text-[#071017]"
+                  ? "bg-[linear-gradient(180deg,#ffffff,#e8fff8)] text-[#071017] shadow-[0_12px_34px_rgba(73,245,209,0.18)]"
                   : "border border-white/10 bg-white/[0.07] text-white/58 hover:text-white",
               ].join(" ")}
               key={item}
@@ -43,13 +43,13 @@ export default function LeaderboardPage() {
           {leaders.map((entry) => (
             <GlassCard
               className={[
-                "p-5 text-center",
-                entry.userId === mockUser.id ? "border-lime-200/50 bg-lime-300/[0.08]" : "",
+                "pressable p-5 text-center",
+                entry.userId === mockUser.id ? "border-lime-200/50 bg-lime-300/[0.08] shadow-[0_28px_86px_rgba(200,255,92,0.08)]" : "",
               ].join(" ")}
               key={entry.userId}
             >
               <div className="relative z-10">
-                <Trophy className="mx-auto mb-3 h-7 w-7 text-amber-200" />
+                <Trophy className="reward-aura mx-auto mb-3 h-7 w-7 text-amber-200" />
                 <UserAvatar name={entry.name} size="md" />
                 <p className="mt-4 text-sm font-bold text-white/50">#{entry.rank}</p>
                 <h2 className="text-2xl font-black text-white">{entry.name}</h2>

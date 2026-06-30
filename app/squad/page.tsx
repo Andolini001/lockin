@@ -22,20 +22,20 @@ export default function SquadPage() {
                 вы получите x2 XP.
               </h2>
               <div className="mt-6 grid grid-cols-3 gap-3">
-                <div className="rounded-[26px] bg-white/[0.06] p-4">
+                <div className="premium-stat rounded-[26px] p-4">
                   <p className="text-xs text-white/45">Weekly XP</p>
                   <p className="mt-2 text-2xl font-black text-white">
                     {mockSquad.weeklyXp.toLocaleString("ru-RU")}
                   </p>
                 </div>
-                <div className="rounded-[26px] bg-white/[0.06] p-4">
+                <div className="premium-stat rounded-[26px] p-4">
                   <p className="text-xs text-white/45">Squad streak</p>
                   <p className="mt-2 inline-flex items-center gap-1 text-2xl font-black text-white">
                     <Flame className="h-5 w-5 text-orange-300" />
                     {mockSquad.streak}
                   </p>
                 </div>
-                <div className="rounded-[26px] bg-white/[0.06] p-4">
+                <div className="premium-stat rounded-[26px] p-4">
                   <p className="text-xs text-white/45">Сегодня</p>
                   <p className="mt-2 text-2xl font-black text-white">
                     {completedToday}/{mockSquad.members}
@@ -43,7 +43,7 @@ export default function SquadPage() {
                 </div>
               </div>
 
-              <div className="mt-6 rounded-[28px] border border-white/10 bg-white/[0.06] p-4">
+              <div className="premium-stat mt-6 rounded-[28px] p-4">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/45">Invite code</p>
                 <div className="mt-2 flex items-center justify-between gap-3">
                   <p className="text-2xl font-black text-white">{mockSquad.inviteCode}</p>
@@ -59,7 +59,7 @@ export default function SquadPage() {
 
           <div className="space-y-3">
             {mockSquadMembers.map((member) => (
-              <GlassCard className="p-4" key={member.userId}>
+              <GlassCard className="pressable p-4" key={member.userId}>
                 <div className="relative z-10 flex items-center gap-4">
                   <UserAvatar name={member.name} size="sm" />
                   <div className="min-w-0 flex-1">

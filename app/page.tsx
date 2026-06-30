@@ -54,7 +54,7 @@ export default function Home() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {heroStats.map(([value, label, Icon]) => (
-              <GlassCard className="p-4" key={label}>
+              <GlassCard className="pressable p-4" key={label}>
                 <div className="relative z-10">
                   <Icon className="mb-3 h-5 w-5 text-lime-300" />
                   <div className="text-2xl font-black text-white">{value}</div>
