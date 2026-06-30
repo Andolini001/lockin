@@ -1,0 +1,30 @@
+type UserAvatarProps = {
+  name: string;
+  avatarUrl?: string;
+  size?: "sm" | "md" | "lg";
+};
+
+const sizeClasses = {
+  sm: "h-10 w-10 text-sm",
+  md: "h-14 w-14 text-lg",
+  lg: "h-24 w-24 text-3xl",
+};
+
+export function UserAvatar({ name, avatarUrl, size = "md" }: UserAvatarProps) {
+  const initials = name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
+  return (
+    <div
+      aria-label={name}
+      className={`${sizeClasses[size]} grid shrink-0 place-items-center rounded-full border border-white/20 bg-[linear-gradient(135deg,#49f5d1,#9e7bff_50%,#c8ff5c)] bg-cover bg-center font-black text-[#071017] shadow-[0_16px_48px_rgba(73,245,209,0.18)]`}
+      style={avatarUrl ? { backgroundImage: `url(${avatarUrl})` } : undefined}
+    >
+      {avatarUrl ? <span className="sr-only">{initials}</span> : initials}
+    </div>
+  );
+}

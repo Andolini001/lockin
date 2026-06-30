@@ -1,0 +1,237 @@
+import type {
+  Badge,
+  LeaderboardEntry,
+  Quest,
+  QuestCategory,
+  QuestDifficulty,
+  ProofType,
+  Squad,
+  SquadMember,
+  User,
+} from "@/lib/types";
+
+export const categoryLabels: Record<QuestCategory, string> = {
+  body: "Тело",
+  focus: "Фокус",
+  social: "Социальное",
+  order: "Порядок",
+  work: "Работа",
+  mind: "Разум",
+};
+
+export const difficultyLabels: Record<QuestDifficulty, string> = {
+  easy: "Лёгкий",
+  medium: "Средний",
+  hard: "Жёсткий",
+};
+
+export const proofTypeLabels: Record<ProofType, string> = {
+  photo: "Фото",
+  video: "Видео",
+  text: "Текст",
+  timer: "Таймер",
+};
+
+export const mockUser: User = {
+  id: "user_igor",
+  name: "Игорь",
+  username: "igor_lockin",
+  level: 7,
+  xp: 2840,
+  streak: 5,
+  completedQuests: 18,
+  squadId: "squad_alpha",
+  createdAt: "2026-06-30T09:00:00.000Z",
+};
+
+export const mockDailyQuest: Quest = {
+  id: "quest_focus_30",
+  title: "30 минут без телефона",
+  description:
+    "Включи фокус-режим, отложи телефон и сделай одно полезное дело без отвлечений.",
+  category: "focus",
+  difficulty: "easy",
+  xpReward: 120,
+  durationMinutes: 30,
+  proofType: "timer",
+  isDaily: true,
+  createdAt: "2026-06-30T06:00:00.000Z",
+};
+
+export const mockQuests: Quest[] = [
+  mockDailyQuest,
+  {
+    id: "quest_walk_10",
+    title: "10 минут прогулки",
+    description: "Выйди на улицу без цели, поймай воздух и вернись с чистой головой.",
+    category: "body",
+    difficulty: "easy",
+    xpReward: 90,
+    durationMinutes: 10,
+    proofType: "photo",
+    isDaily: false,
+    createdAt: "2026-06-30T06:01:00.000Z",
+  },
+  {
+    id: "quest_desk_reset",
+    title: "Разбери рабочее место",
+    description: "Убери лишнее, оставь только то, что помогает сегодня сделать ход.",
+    category: "order",
+    difficulty: "medium",
+    xpReward: 150,
+    durationMinutes: 20,
+    proofType: "photo",
+    isDaily: false,
+    createdAt: "2026-06-30T06:02:00.000Z",
+  },
+  {
+    id: "quest_kind_action",
+    title: "Сделай доброе действие",
+    description: "Помоги человеку, поддержи сообщением или сделай маленький полезный жест.",
+    category: "social",
+    difficulty: "medium",
+    xpReward: 180,
+    durationMinutes: 15,
+    proofType: "text",
+    isDaily: false,
+    createdAt: "2026-06-30T06:03:00.000Z",
+  },
+  {
+    id: "quest_old_friend",
+    title: "Напиши старому другу",
+    description: "Открой диалог, который давно откладывал, и отправь живое сообщение.",
+    category: "social",
+    difficulty: "easy",
+    xpReward: 110,
+    durationMinutes: 8,
+    proofType: "text",
+    isDaily: false,
+    createdAt: "2026-06-30T06:04:00.000Z",
+  },
+  {
+    id: "quest_squats_20",
+    title: "20 приседаний",
+    description: "Короткий физический reset. Сделай 20 чистых повторений без паузы.",
+    category: "body",
+    difficulty: "easy",
+    xpReward: 100,
+    durationMinutes: 5,
+    proofType: "video",
+    isDaily: false,
+    createdAt: "2026-06-30T06:05:00.000Z",
+  },
+  {
+    id: "quest_small_task",
+    title: "Закрой одну маленькую задачу",
+    description: "Выбери задачу до 15 минут и доведи её до статуса done.",
+    category: "work",
+    difficulty: "medium",
+    xpReward: 160,
+    durationMinutes: 15,
+    proofType: "text",
+    isDaily: false,
+    createdAt: "2026-06-30T06:06:00.000Z",
+  },
+  {
+    id: "quest_one_zone",
+    title: "Наведи порядок в одной зоне",
+    description: "Кухня, полка, стол или рюкзак. Одна зона, один видимый результат.",
+    category: "order",
+    difficulty: "medium",
+    xpReward: 140,
+    durationMinutes: 18,
+    proofType: "photo",
+    isDaily: false,
+    createdAt: "2026-06-30T06:07:00.000Z",
+  },
+  {
+    id: "quest_no_scroll",
+    title: "День без лишнего скролла",
+    description: "Поставь лимит на ленту и не открывай её до вечера.",
+    category: "mind",
+    difficulty: "hard",
+    xpReward: 260,
+    durationMinutes: 60,
+    proofType: "timer",
+    isDaily: false,
+    createdAt: "2026-06-30T06:08:00.000Z",
+  },
+];
+
+export const mockSquad: Squad = {
+  id: "squad_alpha",
+  name: "Alpha Squad",
+  members: 5,
+  weeklyXp: 12450,
+  streak: 4,
+  inviteCode: "LOCK-ALPHA",
+};
+
+export const mockSquadMembers: SquadMember[] = [
+  {
+    userId: "user_igor",
+    name: "Игорь",
+    username: "igor_lockin",
+    xp: 2840,
+    level: 7,
+    streak: 5,
+    completedToday: true,
+  },
+  {
+    userId: "user_mira",
+    name: "Мира",
+    username: "mira_run",
+    xp: 3210,
+    level: 7,
+    streak: 8,
+    completedToday: true,
+  },
+  {
+    userId: "user_artem",
+    name: "Артём",
+    username: "art_focus",
+    xp: 2140,
+    level: 5,
+    streak: 3,
+    completedToday: true,
+  },
+  {
+    userId: "user_lena",
+    name: "Лена",
+    username: "lena_mind",
+    xp: 1890,
+    level: 4,
+    streak: 2,
+    completedToday: false,
+  },
+  {
+    userId: "user_tim",
+    name: "Тим",
+    username: "tim_done",
+    xp: 2560,
+    level: 6,
+    streak: 6,
+    completedToday: false,
+  },
+];
+
+export const mockLeaderboard: LeaderboardEntry[] = [
+  { userId: "user_mira", name: "Мира", xp: 4210, level: 9, streak: 12, rank: 1 },
+  { userId: "user_igor", name: "Игорь", xp: 2840, level: 7, streak: 5, rank: 2 },
+  { userId: "user_tim", name: "Тим", xp: 2560, level: 6, streak: 6, rank: 3 },
+  { userId: "user_artem", name: "Артём", xp: 2140, level: 5, streak: 3, rank: 4 },
+  { userId: "user_lena", name: "Лена", xp: 1890, level: 4, streak: 2, rank: 5 },
+  { userId: "user_sasha", name: "Саша", xp: 1760, level: 4, streak: 7, rank: 6 },
+  { userId: "user_nika", name: "Ника", xp: 1540, level: 4, streak: 4, rank: 7 },
+  { userId: "user_max", name: "Макс", xp: 1390, level: 3, streak: 2, rank: 8 },
+  { userId: "user_dan", name: "Даня", xp: 980, level: 2, streak: 1, rank: 9 },
+  { userId: "user_anya", name: "Аня", xp: 820, level: 2, streak: 1, rank: 10 },
+];
+
+export const mockBadges: Badge[] = [
+  { id: "founder", title: "Founder", description: "Первый набор LOCKIN" },
+  { id: "streak_7", title: "7 Day Streak", description: "Неделя без пропусков" },
+  { id: "focus", title: "Focus Mode", description: "Фокус-квесты закрыты" },
+  { id: "team", title: "Team Player", description: "Командный x2 XP" },
+  { id: "early", title: "Early User", description: "Ранний участник MVP" },
+];

@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LOCKIN MVP
 
-## Getting Started
+LOCKIN is a mobile-first social challenge app about real-life daily quests. The
+current MVP runs fully on mock data and is prepared for Supabase and Telegram
+Mini App integration.
 
-First, run the development server:
+## Run
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-## Learn More
+or:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run verify
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## MVP Scope
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- App Router routes: `/`, `/dashboard`, `/quests`, `/proof`, `/squad`,
+  `/leaderboard`, `/profile`, `/share`.
+- Liquid Glass UI system with reusable cards, buttons, bottom navigation,
+  quest cards, progress rings, streak bar, leaderboard, proof upload and share
+  card components.
+- Mock user, quests, squad, leaderboard and badges in `lib/mockData.ts`.
+- XP, level and quest completion helpers in `lib/xp.ts` and
+  `lib/questEngine.ts`.
+- Supabase client guard in `lib/supabase.ts` and schema/RLS starter in
+  `supabase/schema.sql`.
+- Telegram Mini App adapter stubs in `lib/telegram.ts`.
+- PWA manifest in `app/manifest.ts`.
 
-## Deploy on Vercel
+## Next Integrations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Add real `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+- Apply `supabase/schema.sql`, create a Storage bucket for proof files, then
+  replace local proof submission with upload + `proofs` insert.
+- Add Telegram Mini App SDK initialization and authenticated launch payload
+  validation.
+- Add share-card image export using a DOM-to-image or canvas flow.

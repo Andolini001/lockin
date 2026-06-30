@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --app-bg: #050711;
+  --glass-bg: rgba(255, 255, 255, 0.085);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --accent: #49f5d1;
+  --accent-soft: rgba(73, 245, 209, 0.18);
+  --text-main: #f8fbff;
+  --text-muted: rgba(221, 231, 255, 0.68);
+  --font-sans:
+    "Inter", "Manrope", "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+@theme inline {
+  --color-background: var(--app-bg);
+  --color-foreground: var(--text-main);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--app-bg);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(135deg, rgba(73, 245, 209, 0.1), transparent 32%),
+    linear-gradient(225deg, rgba(150, 100, 255, 0.13), transparent 35%),
+    linear-gradient(180deg, #080b18 0%, #050711 42%, #02030a 100%);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+}
+
+button,
+a,
+textarea,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(73, 245, 209, 0.32);
+  color: white;
+}
+
+@layer components {
+  .app-screen {
+    min-height: 100vh;
+    padding: 24px 20px 112px;
+  }
+
+  .app-container {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1120px;
+  }
+
+  .glass-card {
+    position: relative;
+    border: 1px solid var(--glass-border);
+    background:
+      linear-gradient(150deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055)),
+      var(--glass-bg);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 24px 80px rgba(0, 0, 0, 0.34);
+    backdrop-filter: blur(28px) saturate(148%);
+    -webkit-backdrop-filter: blur(28px) saturate(148%);
+    border-radius: 30px;
+  }
+
+  .glass-card::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.16), transparent 38%);
+    opacity: 0.55;
+  }
+
+  .mini-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 11px;
+    color: rgba(248, 251, 255, 0.88);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, #49f5d1, #c8ff5c 45%, #ffe485 82%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .surface-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 38px 38px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 82%);
+  }
+}
+
+@media (min-width: 768px) {
+  .app-screen {
+    padding: 36px 32px 120px;
+  }
+}
