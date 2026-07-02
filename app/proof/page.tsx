@@ -1,20 +1,31 @@
+"use client";
+
 import { AppHeader } from "@/components/AppHeader";
 import { BottomNav } from "@/components/BottomNav";
 import { QuestCard } from "@/components/QuestCard";
 import { UploadProof } from "@/components/UploadProof";
 import { mockDailyQuest, mockQuests, mockUser } from "@/lib/mockData";
 import { Clock3, Sparkles, Zap } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useMemo } from "react";
 
-type ProofPageProps = {
-  searchParams: Promise<{
-    quest?: string | string[];
-  }>;
-};
+export default function ProofPage() {
+  return (
+    <Suspense fallback={<ProofExperience questId={null} />}>
+      <ProofPageContent />
+    </Suspense>
+  );
+}
 
-export default async function ProofPage({ searchParams }: ProofPageProps) {
-  const params = await searchParams;
-  const questId = Array.isArray(params.quest) ? params.quest[0] : params.quest;
-  const selectedQuest = mockQuests.find((quest) => quest.id === questId) ?? mockDailyQuest;
+function ProofPageContent() {
+  const searchParams = useSearchParams();
+
+  return <ProofExperience questId={searchParams.get("quest")} />;
+}
+
+function ProofExperience({ questId }: { questId: string | null }) {
+  const selectedQuest = useMemo(() => mockQuests.find((quest) => quest.id === questId) ?? mockDailyQuest, [questId]);
+
   const proofLabels = {
     photo: "Фото",
     video: "Видео",

@@ -51,7 +51,7 @@ export function LiquidButton({
 
   if (href) {
     return (
-      <Link className={classes(variant, className)} href={href}>
+      <Link className={classes(variant, className)} href={href} prefetch={false}>
         {content}
       </Link>
     );

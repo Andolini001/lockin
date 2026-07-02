@@ -39,6 +39,7 @@ export function BottomNav() {
             ].join(" ")}
             href={item.href}
             key={item.href}
+            prefetch={false}
           >
             <Icon
               className={["h-5 w-5", active ? "reward-aura" : ""].join(" ")}
