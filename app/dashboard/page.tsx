@@ -5,6 +5,7 @@ import { GlassCard } from "@/components/GlassCard";
 import { LiquidButton } from "@/components/LiquidButton";
 import { ProgressRing } from "@/components/ProgressRing";
 import { SquadCard } from "@/components/SquadCard";
+import { SquadProgressCard } from "@/components/SquadProgressCard";
 import { StreakBar } from "@/components/StreakBar";
 import { XPBadge } from "@/components/XPBadge";
 import {
@@ -14,10 +15,11 @@ import {
   mockSquadMembers,
   mockUser,
 } from "@/lib/mockData";
+import { getSquadDailyProgress } from "@/lib/squadProgress";
 import { calculateQuestReward, levelProgressPercent, xpToNextLevel } from "@/lib/xp";
 
 export default function DashboardPage() {
-  const completedToday = mockSquadMembers.filter((member) => member.completedToday).length;
+  const squadProgress = getSquadDailyProgress(mockSquad, mockSquadMembers);
   const reward = calculateQuestReward(mockDailyQuest, mockUser.streak);
 
   return (
@@ -115,11 +117,13 @@ export default function DashboardPage() {
                 </div>
               </div>
             </GlassCard>
+
+            <SquadProgressCard progress={squadProgress} squad={mockSquad} />
           </div>
         </div>
 
         <div className="mt-24 grid gap-5 lg:mt-28 lg:grid-cols-[0.9fr_1.1fr]">
-          <SquadCard completedToday={completedToday} squad={mockSquad} />
+          <SquadCard progress={squadProgress} squad={mockSquad} />
           <GlassCard className="p-6">
             <div className="relative z-10 flex h-full flex-col justify-between gap-6 sm:flex-row sm:items-center">
               <div>

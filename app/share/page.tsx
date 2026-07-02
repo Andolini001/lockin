@@ -4,19 +4,19 @@ import { Copy, Download } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { BottomNav } from "@/components/BottomNav";
 import { GlassCard } from "@/components/GlassCard";
+import { InviteFriendButton } from "@/components/InviteFriendButton";
 import { LiquidButton } from "@/components/LiquidButton";
 import { ShareCard } from "@/components/ShareCard";
 import { mockDailyQuest, mockSquad, mockUser } from "@/lib/mockData";
+import { LOCKIN_SHARE_TEXT } from "@/lib/share";
 import { useState } from "react";
-
-const shareText = "Я закрыл день в LOCKIN. Сможешь повторить мой streak?";
 
 export default function SharePage() {
   const [copied, setCopied] = useState(false);
 
   function copyShareText() {
     if (navigator.clipboard) {
-      void navigator.clipboard.writeText(shareText);
+      void navigator.clipboard.writeText(LOCKIN_SHARE_TEXT);
     }
 
     setCopied(true);
@@ -42,13 +42,19 @@ export default function SharePage() {
               </p>
 
               <div className="mt-6 rounded-[28px] border border-white/10 bg-white/[0.06] p-4 text-white/80">
-                {shareText}
+                {LOCKIN_SHARE_TEXT}
+              </div>
+
+              <div className="mt-4 rounded-[28px] border border-lime-200/18 bg-lime-200/[0.06] p-4">
+                <p className="text-sm font-black text-lime-100">Вступай в мой squad</p>
+                <p className="mt-1 text-2xl font-black text-white">{mockSquad.inviteCode}</p>
               </div>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <LiquidButton icon={<Copy className="h-5 w-5" />} onClick={copyShareText}>
                   {copied ? "Скопировано" : "Скопировать текст"}
                 </LiquidButton>
+                <InviteFriendButton inviteCode={mockSquad.inviteCode} variant="secondary" />
                 <LiquidButton icon={<Download className="h-5 w-5" />} variant="secondary">
                   Скачать карточку
                 </LiquidButton>

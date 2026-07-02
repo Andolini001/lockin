@@ -1,13 +1,14 @@
-import { Copy, Flame, UserPlus } from "lucide-react";
+import { Copy, Flame } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { BottomNav } from "@/components/BottomNav";
 import { GlassCard } from "@/components/GlassCard";
-import { LiquidButton } from "@/components/LiquidButton";
+import { InviteFriendButton } from "@/components/InviteFriendButton";
 import { UserAvatar } from "@/components/UserAvatar";
 import { mockSquad, mockSquadMembers, mockUser } from "@/lib/mockData";
+import { getSquadDailyProgress } from "@/lib/squadProgress";
 
 export default function SquadPage() {
-  const completedToday = mockSquadMembers.filter((member) => member.completedToday).length;
+  const squadProgress = getSquadDailyProgress(mockSquad, mockSquadMembers);
 
   return (
     <main className="app-screen">
@@ -38,8 +39,30 @@ export default function SquadPage() {
                 <div className="premium-stat rounded-[26px] p-4">
                   <p className="text-xs text-white/45">Сегодня</p>
                   <p className="mt-2 text-2xl font-black text-white">
-                    {completedToday}/{mockSquad.members}
+                    {squadProgress.completed}/{squadProgress.total}
                   </p>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-[28px] border border-white/10 bg-white/[0.06] p-4">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-black text-white">
+                      {squadProgress.isComplete
+                        ? `x${squadProgress.bonusMultiplier} XP bonus активирован`
+                        : `Ещё ${squadProgress.remaining} участника до x${squadProgress.bonusMultiplier} XP`}
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-white/50">
+                      Mock-сценарий: {squadProgress.completed}/{squadProgress.total} участников закрыли день.
+                    </p>
+                  </div>
+                  <span className="premium-badge shrink-0">{squadProgress.percent}%</span>
+                </div>
+                <div className="mt-4 h-3 overflow-hidden rounded-full bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <div
+                    className="h-full rounded-full bg-[linear-gradient(90deg,#49f5d1,#c8ff5c,#ffe485)] shadow-[0_0_22px_rgba(200,255,92,0.28)]"
+                    style={{ width: `${squadProgress.percent}%` }}
+                  />
                 </div>
               </div>
 
@@ -51,9 +74,7 @@ export default function SquadPage() {
                 </div>
               </div>
 
-              <LiquidButton className="mt-6 w-full" icon={<UserPlus className="h-5 w-5" />}>
-                Пригласить друга
-              </LiquidButton>
+              <InviteFriendButton className="mt-6 w-full" inviteCode={mockSquad.inviteCode} />
             </div>
           </GlassCard>
 

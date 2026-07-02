@@ -1,14 +1,15 @@
 import { ArrowRight, Flame, UsersRound } from "lucide-react";
 import { GlassCard } from "@/components/GlassCard";
 import { LiquidButton } from "@/components/LiquidButton";
+import type { SquadDailyProgress } from "@/lib/squadProgress";
 import type { Squad } from "@/lib/types";
 
 type SquadCardProps = {
   squad: Squad;
-  completedToday: number;
+  progress: SquadDailyProgress;
 };
 
-export function SquadCard({ squad, completedToday }: SquadCardProps) {
+export function SquadCard({ squad, progress }: SquadCardProps) {
   return (
     <GlassCard className="pressable overflow-hidden p-5">
       <div className="relative z-10">
@@ -26,7 +27,7 @@ export function SquadCard({ squad, completedToday }: SquadCardProps) {
           <div className="premium-stat rounded-3xl p-3">
             <p className="text-xs text-white/45">Сегодня</p>
             <p className="text-xl font-black text-white">
-              {completedToday}/{squad.members}
+              {progress.completed}/{progress.total}
             </p>
           </div>
           <div className="premium-stat rounded-3xl p-3">
@@ -45,8 +46,17 @@ export function SquadCard({ squad, completedToday }: SquadCardProps) {
         <div className="h-3 overflow-hidden rounded-full bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
           <div
             className="h-full rounded-full bg-[linear-gradient(90deg,#49f5d1,#c8ff5c,#ffe485)] shadow-[0_0_22px_rgba(200,255,92,0.28)]"
-            style={{ width: `${(completedToday / squad.members) * 100}%` }}
+            style={{ width: `${progress.percent}%` }}
           />
+        </div>
+
+        <div className="mt-4 rounded-[24px] border border-white/10 bg-white/[0.06] px-4 py-3">
+          <p className="inline-flex items-center gap-2 text-sm font-black text-white">
+            <Flame className="h-4 w-4 text-orange-300" />
+            {progress.isComplete
+              ? `x${progress.bonusMultiplier} XP bonus активирован`
+              : `Ещё ${progress.remaining} до x${progress.bonusMultiplier} XP bonus`}
+          </p>
         </div>
 
         <LiquidButton

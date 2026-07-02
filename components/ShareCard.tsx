@@ -70,7 +70,7 @@ export function ShareCard({ user, quest, squad }: ShareCardProps) {
                 <QrCode className="h-7 w-7 sm:h-9 sm:w-9" />
               </div>
               <div className="min-w-0">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/45">Invite</p>
+                <p className="truncate text-xs font-bold text-lime-100">Вступай в мой squad</p>
                 <p className="truncate text-lg font-black text-white sm:text-xl">{squad.inviteCode}</p>
                 <p className="truncate text-xs text-white/48">Сможешь повторить мой streak?</p>
               </div>
