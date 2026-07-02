@@ -74,3 +74,34 @@ export type Badge = {
   title: string;
   description: string;
 };
+
+export type CharacterStatId = "focus" | "body" | "social" | "mind";
+export type SkillBranch = "core" | "focus" | "squad";
+export type SkillStatus = "unlocked" | "active" | "locked";
+
+export type CharacterStat = {
+  id: CharacterStatId;
+  label: string;
+  level: number;
+  progress: number;
+  description: string;
+};
+
+export type SkillNode = {
+  id: string;
+  title: string;
+  description: string;
+  branch: SkillBranch;
+  status: SkillStatus;
+  requirement: string;
+  bonus: string;
+};
+
+export type CharacterBuild = {
+  title: string;
+  rank: string;
+  trait: string;
+  nextUnlock: string;
+  stats: CharacterStat[];
+  skills: SkillNode[];
+};

@@ -1,12 +1,13 @@
 import { Share2 } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { BottomNav } from "@/components/BottomNav";
+import { CharacterProgression } from "@/components/CharacterProgression";
 import { GlassCard } from "@/components/GlassCard";
 import { LiquidButton } from "@/components/LiquidButton";
 import { ProgressRing } from "@/components/ProgressRing";
 import { UserAvatar } from "@/components/UserAvatar";
 import { XPBadge } from "@/components/XPBadge";
-import { mockBadges, mockLeaderboard, mockUser } from "@/lib/mockData";
+import { mockBadges, mockCharacterBuild, mockLeaderboard, mockUser } from "@/lib/mockData";
 import { levelProgressPercent } from "@/lib/xp";
 
 export default function ProfilePage() {
@@ -17,7 +18,7 @@ export default function ProfilePage() {
       <div className="app-container">
         <AppHeader subtitle="Профиль" title="Твой LOCKIN" user={mockUser} />
 
-        <div className="grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-5 lg:grid-cols-[0.62fr_1.38fr]">
           <GlassCard className="p-6 text-center">
             <div className="relative z-10">
               <div className="flex justify-center">
@@ -25,6 +26,11 @@ export default function ProfilePage() {
               </div>
               <h2 className="mt-5 text-4xl font-black text-white">{mockUser.name}</h2>
               <p className="mt-1 text-white/52">@{mockUser.username}</p>
+              <div className="mt-4 flex justify-center">
+                <span className="premium-badge inline-flex rounded-full px-4 py-2 text-sm font-black text-lime-100">
+                  {mockCharacterBuild.title} · {mockCharacterBuild.rank}
+                </span>
+              </div>
               <div className="mt-5 flex justify-center">
                 <XPBadge xp={mockUser.xp} />
               </div>
@@ -58,6 +64,8 @@ export default function ProfilePage() {
                 </GlassCard>
               ))}
             </div>
+
+            <CharacterProgression build={mockCharacterBuild} />
 
             <GlassCard className="p-5">
               <div className="relative z-10">
