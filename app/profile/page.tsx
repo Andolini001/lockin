@@ -19,7 +19,7 @@ export default function ProfilePage() {
         <AppHeader subtitle="Профиль" title="Твой LOCKIN" user={mockUser} />
 
         <div className="grid gap-5 lg:grid-cols-[0.62fr_1.38fr]">
-          <GlassCard className="p-6 text-center">
+          <GlassCard className="min-w-0 p-6 text-center">
             <div className="relative z-10">
               <div className="flex justify-center">
                 <UserAvatar name={mockUser.name} size="lg" />
@@ -48,7 +48,7 @@ export default function ProfilePage() {
             </div>
           </GlassCard>
 
-          <div className="space-y-5">
+          <div className="min-w-0 space-y-5">
             <div className="grid gap-3 sm:grid-cols-4">
               {[
                 [`${mockUser.streak}`, "дней подряд"],

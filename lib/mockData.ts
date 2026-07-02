@@ -241,7 +241,7 @@ export const mockCharacterBuild: CharacterBuild = {
   title: "Фокус-оператор",
   rank: "Tier II",
   trait: "Сильнее всего качается от фокус-квестов, streak и командных закрытий.",
-  nextUnlock: "Streak Shield через 2 дня серии",
+  nextUnlock: "Flow State через 4 focus proof",
   stats: [
     {
       id: "focus",
