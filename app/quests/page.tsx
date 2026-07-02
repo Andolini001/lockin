@@ -1,8 +1,10 @@
 "use client";
 
+import { CheckCircle2, FileCheck2, Play } from "lucide-react";
 import { useMemo, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { BottomNav } from "@/components/BottomNav";
+import { GlassCard } from "@/components/GlassCard";
 import { QuestCard } from "@/components/QuestCard";
 import { categoryLabels, mockUser } from "@/lib/mockData";
 import { getQuestsByCategory } from "@/lib/questEngine";
@@ -39,6 +41,27 @@ export default function QuestsPage() {
     <main className="app-screen">
       <div className="app-container">
         <AppHeader subtitle="Забери XP" title="Квесты на сегодня" user={mockUser} />
+
+        <GlassCard className="mb-4 p-3 sm:p-4">
+          <div className="relative z-10">
+            <p className="text-sm font-black text-cyan-100">Выбери один квест</p>
+            <h2 className="mt-1 text-base font-black leading-snug text-white sm:text-2xl">
+              “Взять квест” откроет экран выполнения.
+            </h2>
+            <div className="mt-3 grid grid-cols-3 gap-2">
+              {[
+                { Icon: Play, label: "Принять" },
+                { Icon: CheckCircle2, label: "Сделать" },
+                { Icon: FileCheck2, label: "Proof" },
+              ].map(({ Icon, label }) => (
+                <div className="premium-stat rounded-2xl p-2 text-center sm:p-3" key={label}>
+                  <Icon className="mx-auto h-4 w-4 text-lime-100" />
+                  <p className="mt-2 text-xs font-black text-white/78">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </GlassCard>
 
         <div className="mb-5 space-y-3">
           <div className="flex gap-2 overflow-x-auto pb-1">

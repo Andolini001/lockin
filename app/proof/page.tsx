@@ -25,13 +25,13 @@ export default async function ProofPage({ searchParams }: ProofPageProps) {
   return (
     <main className="app-screen">
       <div className="app-container">
-        <AppHeader subtitle="Proof-доказательство" title="Покажи результат" user={mockUser} />
+        <AppHeader subtitle="Шаг 2 из 3" title="Квест принят" user={mockUser} />
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="glass-card pressable lg:hidden">
+          <div className="hidden">
             <div className="relative z-10 flex items-start justify-between gap-4 p-4">
               <div className="min-w-0">
                 <div className="flex flex-wrap gap-2">
-                  <span className="premium-badge">Квест дня</span>
+                  <span className="premium-badge">Квест принят</span>
                   <span className="mini-pill">{proofLabels[selectedQuest.proofType]}</span>
                 </div>
                 <h2 className="mt-3 text-2xl font-black leading-tight text-white">{selectedQuest.title}</h2>
@@ -51,7 +51,7 @@ export default async function ProofPage({ searchParams }: ProofPageProps) {
             </div>
           </div>
           <div className="hidden lg:block">
-            <QuestCard quest={selectedQuest} />
+            <QuestCard quest={selectedQuest} showAction={false} />
           </div>
           <UploadProof quest={selectedQuest} />
         </div>

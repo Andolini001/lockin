@@ -1,9 +1,10 @@
-import { ArrowRight, Camera, Clock3, Flame, ShieldCheck } from "lucide-react";
+import { Camera, CheckCircle2, Clock3, FileCheck2, Flame, Play, ShieldCheck } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { BottomNav } from "@/components/BottomNav";
 import { GlassCard } from "@/components/GlassCard";
 import { LiquidButton } from "@/components/LiquidButton";
 import { ProgressRing } from "@/components/ProgressRing";
+import { QuestAcceptButton } from "@/components/QuestAcceptButton";
 import { SquadCard } from "@/components/SquadCard";
 import { SquadProgressCard } from "@/components/SquadProgressCard";
 import { StreakBar } from "@/components/StreakBar";
@@ -48,10 +49,26 @@ export default function DashboardPage() {
                 {mockDailyQuest.description}
               </p>
 
+              <div className="mt-6 grid gap-2 sm:grid-cols-3">
+                {[
+                  { Icon: Play, label: "Возьми квест", step: "1" },
+                  { Icon: CheckCircle2, label: "Сделай действие", step: "2" },
+                  { Icon: FileCheck2, label: "Отправь proof", step: "3" },
+                ].map(({ Icon, label, step }) => (
+                  <div className="premium-stat rounded-[22px] p-3" key={label}>
+                    <div className="flex items-center gap-2">
+                      <span className="grid h-7 w-7 place-items-center rounded-full bg-lime-300/16 text-xs font-black text-lime-100">
+                        {step}
+                      </span>
+                      <Icon className="h-4 w-4 text-cyan-100" />
+                    </div>
+                    <p className="mt-2 text-sm font-black text-white">{label}</p>
+                  </div>
+                ))}
+              </div>
+
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <LiquidButton href="/proof" icon={<ArrowRight className="h-5 w-5" />}>
-                  Начать квест
-                </LiquidButton>
+                <QuestAcceptButton quest={mockDailyQuest} />
                 <LiquidButton href="/quests" icon={<Camera className="h-5 w-5" />} variant="secondary">
                   Выбрать другой
                 </LiquidButton>

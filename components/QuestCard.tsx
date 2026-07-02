@@ -1,7 +1,7 @@
 import type { ComponentType } from "react";
-import { ArrowRight, Camera, Clock3, FileText, Timer, Video } from "lucide-react";
+import { Camera, Clock3, FileText, Timer, Video } from "lucide-react";
 import { GlassCard } from "@/components/GlassCard";
-import { LiquidButton } from "@/components/LiquidButton";
+import { QuestAcceptButton } from "@/components/QuestAcceptButton";
 import {
   categoryLabels,
   difficultyLabels,
@@ -19,9 +19,10 @@ const proofIcons: Record<ProofType, ComponentType<{ className?: string }>> = {
 type QuestCardProps = {
   quest: Quest;
   compact?: boolean;
+  showAction?: boolean;
 };
 
-export function QuestCard({ quest, compact = false }: QuestCardProps) {
+export function QuestCard({ quest, compact = false, showAction = true }: QuestCardProps) {
   const ProofIcon = proofIcons[quest.proofType];
 
   return (
@@ -46,7 +47,7 @@ export function QuestCard({ quest, compact = false }: QuestCardProps) {
         </div>
 
         <h3 className="text-2xl font-black leading-tight text-white">{quest.title}</h3>
-        <p className={["mt-3 leading-6 text-[var(--text-muted)]", compact ? "text-sm" : ""].join(" ")}>
+        <p className={["mt-3 leading-6 text-[var(--text-muted)]", compact ? "line-clamp-2 text-sm" : ""].join(" ")}>
           {quest.description}
         </p>
 
@@ -61,14 +62,13 @@ export function QuestCard({ quest, compact = false }: QuestCardProps) {
           <span>{proofTypeLabels[quest.proofType]}</span>
         </div>
 
-        <LiquidButton
-          className="mt-5 w-full"
-          href={`/proof?quest=${quest.id}`}
-          icon={<ArrowRight className="h-5 w-5" />}
-          variant={quest.isDaily ? "primary" : "secondary"}
-        >
-          Взять квест
-        </LiquidButton>
+        {showAction ? (
+          <QuestAcceptButton
+            className="mt-5 w-full"
+            quest={quest}
+            variant={quest.isDaily ? "primary" : "secondary"}
+          />
+        ) : null}
       </div>
     </GlassCard>
   );
