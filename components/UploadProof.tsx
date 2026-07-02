@@ -12,7 +12,9 @@ import {
   Zap,
 } from "lucide-react";
 import { GlassCard } from "@/components/GlassCard";
+import { InviteFriendButton } from "@/components/InviteFriendButton";
 import { LiquidButton } from "@/components/LiquidButton";
+import { mockSquad } from "@/lib/mockData";
 import type { Quest } from "@/lib/types";
 
 type UploadProofProps = {
@@ -192,11 +194,19 @@ export function UploadProof({ quest }: UploadProofProps) {
           </p>
           <h2 className="mt-5 text-3xl font-black text-white">День закрыт.</h2>
           <p className="mt-3 text-[var(--text-muted)]">
-            Proof сохранён локально. Теперь можно забрать социальный момент: поделиться карточкой и подтянуть squad.
+            Ты уже сделал ход. Теперь брось вызов другу: пусть повторит твой streak и войдёт в squad.
           </p>
+          <div className="mt-5 rounded-[28px] border border-lime-200/18 bg-lime-200/[0.07] p-4 text-left">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-lime-100/74">Invite code</p>
+            <p className="mt-2 text-2xl font-black text-white">{mockSquad.inviteCode}</p>
+            <p className="mt-1 text-sm leading-5 text-white/56">
+              “Я закрыл день в LOCKIN. Сможешь повторить мой streak?”
+            </p>
+          </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <LiquidButton className="w-full" href="/share">
-              Поделиться победой
+            <InviteFriendButton className="w-full" inviteCode={mockSquad.inviteCode} />
+            <LiquidButton className="w-full" href="/share" variant="secondary">
+              Открыть share card
             </LiquidButton>
             <LiquidButton className="w-full" href="/squad" variant="secondary">
               Открыть squad
