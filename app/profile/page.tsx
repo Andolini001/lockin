@@ -65,7 +65,11 @@ export default function ProfilePage() {
               ))}
             </div>
 
-            <CharacterProgression build={mockCharacterBuild} />
+            <CharacterProgression
+              build={mockCharacterBuild}
+              level={mockUser.level}
+              xpProgress={levelProgressPercent(mockUser.xp)}
+            />
 
             <GlassCard className="p-5">
               <div className="relative z-10">

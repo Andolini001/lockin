@@ -2,8 +2,8 @@
 
 :root {
   --app-bg: #050711;
-  --glass-bg: rgba(255, 255, 255, 0.078);
-  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-bg: rgba(255, 255, 255, 0.096);
+  --glass-border: rgba(255, 255, 255, 0.22);
   --accent: #49f5d1;
   --accent-soft: rgba(73, 245, 209, 0.18);
   --accent-lime: #c8ff5c;
@@ -37,10 +37,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(1200px 760px at 18% -12%, rgba(73, 245, 209, 0.18), transparent 58%),
+    radial-gradient(1180px 760px at 18% -12%, rgba(73, 245, 209, 0.2), transparent 58%),
     radial-gradient(980px 680px at 86% 2%, rgba(169, 135, 255, 0.18), transparent 60%),
-    radial-gradient(980px 700px at 60% 112%, rgba(200, 255, 92, 0.08), transparent 64%),
-    linear-gradient(180deg, #080b18 0%, #050711 42%, #02030a 100%);
+    radial-gradient(980px 700px at 60% 112%, rgba(200, 255, 92, 0.11), transparent 64%),
+    linear-gradient(180deg, #0a0d1b 0%, #050711 42%, #02030a 100%);
   color: var(--text-main);
   font-family: var(--font-sans);
 }
@@ -119,16 +119,16 @@ input {
     position: relative;
     border: 1px solid var(--glass-border);
     background:
-      linear-gradient(145deg, rgba(255, 255, 255, 0.155), rgba(255, 255, 255, 0.052) 46%, rgba(255, 255, 255, 0.085)),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.21), rgba(255, 255, 255, 0.064) 44%, rgba(255, 255, 255, 0.105)),
       var(--glass-bg);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.34),
       inset 0 -1px 0 rgba(255, 255, 255, 0.06),
-      0 28px 88px rgba(0, 0, 0, 0.42),
-      0 1px 0 rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(34px) saturate(168%);
-    -webkit-backdrop-filter: blur(34px) saturate(168%);
-    border-radius: 30px;
+      0 34px 96px rgba(0, 0, 0, 0.44),
+      0 1px 0 rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(46px) saturate(190%);
+    -webkit-backdrop-filter: blur(46px) saturate(190%);
+    border-radius: 34px;
     transform: translateZ(0);
     transition:
       border-color 180ms ease,
@@ -144,10 +144,10 @@ input {
     inset: 1px;
     border-radius: inherit;
     background:
-      radial-gradient(70% 46% at 16% 0%, rgba(255, 255, 255, 0.18), transparent 62%),
-      radial-gradient(52% 36% at 88% 18%, rgba(73, 245, 209, 0.12), transparent 70%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 48%);
-    opacity: 0.78;
+      radial-gradient(70% 46% at 16% 0%, rgba(255, 255, 255, 0.25), transparent 62%),
+      radial-gradient(52% 36% at 88% 18%, rgba(73, 245, 209, 0.13), transparent 70%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.075), transparent 48%);
+    opacity: 0.86;
   }
 
   .glass-card::after {
@@ -157,9 +157,9 @@ input {
     inset: 0;
     border-radius: inherit;
     background:
-      linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 34%),
-      linear-gradient(300deg, rgba(73, 245, 209, 0.055), transparent 46%);
-    opacity: 0.62;
+      linear-gradient(112deg, rgba(255, 255, 255, 0.26), transparent 31%, rgba(255, 255, 255, 0.07) 52%, transparent 72%),
+      linear-gradient(300deg, rgba(73, 245, 209, 0.06), transparent 46%);
+    opacity: 0.66;
   }
 
   .glass-card:hover {
@@ -178,13 +178,15 @@ input {
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.14);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055)),
-      rgba(255, 255, 255, 0.07);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06)),
+      rgba(255, 255, 255, 0.08);
     padding: 6px 11px;
     color: rgba(248, 251, 255, 0.88);
     font-size: 0.78rem;
     font-weight: 800;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 12px 28px rgba(0, 0, 0, 0.14);
   }
 
   .text-gradient {
@@ -239,10 +241,10 @@ input {
 
   .nav-dock {
     background:
-      linear-gradient(180deg, rgba(17, 24, 46, 0.86), rgba(7, 11, 24, 0.78)),
-      rgba(8, 12, 26, 0.72);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(7, 11, 24, 0.78)),
+      rgba(8, 12, 26, 0.68);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
       0 22px 76px rgba(0, 0, 0, 0.5),
       0 0 42px rgba(73, 245, 209, 0.08);
   }
@@ -250,19 +252,70 @@ input {
   .premium-stat {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background:
-      radial-gradient(90% 90% at 20% 0%, rgba(255, 255, 255, 0.105), transparent 68%),
-      rgba(255, 255, 255, 0.058);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      radial-gradient(90% 90% at 20% 0%, rgba(255, 255, 255, 0.14), transparent 68%),
+      rgba(255, 255, 255, 0.068);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 18px 48px rgba(0, 0, 0, 0.14);
   }
 
   .premium-badge {
     border: 1px solid rgba(200, 255, 92, 0.32);
     background:
-      linear-gradient(135deg, rgba(200, 255, 92, 0.18), rgba(73, 245, 209, 0.08)),
-      rgba(255, 255, 255, 0.06);
+      linear-gradient(135deg, rgba(200, 255, 92, 0.2), rgba(73, 245, 209, 0.1)),
+      rgba(255, 255, 255, 0.075);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
       0 12px 34px rgba(200, 255, 92, 0.09);
+  }
+
+  .mirror-panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.055) 48%, rgba(255, 255, 255, 0.09)),
+      rgba(255, 255, 255, 0.064);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+      0 20px 58px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(34px) saturate(185%);
+    -webkit-backdrop-filter: blur(34px) saturate(185%);
+  }
+
+  .mirror-panel::before,
+  .growth-tree-canvas::before,
+  .growth-node::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(116deg, rgba(255, 255, 255, 0.24), transparent 34%, rgba(255, 255, 255, 0.08) 58%, transparent 74%);
+    opacity: 0.62;
+  }
+
+  .growth-tree-canvas {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+      radial-gradient(80% 58% at 50% 0%, rgba(200, 255, 92, 0.115), transparent 66%),
+      radial-gradient(70% 60% at 16% 66%, rgba(73, 245, 209, 0.105), transparent 70%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)),
+      rgba(255, 255, 255, 0.055);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 24px 76px rgba(0, 0, 0, 0.26);
+    backdrop-filter: blur(38px) saturate(180%);
+    -webkit-backdrop-filter: blur(38px) saturate(180%);
+  }
+
+  .growth-node {
+    overflow: hidden;
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
   }
 
   .pressable {

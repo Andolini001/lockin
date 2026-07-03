@@ -6,6 +6,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isGitHubPages ? "/lockin"
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  allowedDevOrigins: ["127.0.0.1"],
   ...(isStaticExport
     ? {
         output: "export",
