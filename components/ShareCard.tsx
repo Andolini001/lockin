@@ -19,7 +19,7 @@ export function ShareCard({ user, quest, squad }: ShareCardProps) {
         <div className="flex items-center justify-between">
           <div>
             <span className="text-2xl font-black tracking-normal text-white">LOCKIN</span>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/42">daily proof</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/42">день закрыт</p>
           </div>
           <div className="premium-badge rounded-full p-2 text-lime-200">
             <Sparkles className="h-5 w-5" />

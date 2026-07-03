@@ -38,17 +38,17 @@ const proofCopy: Record<
   },
   video: {
     title: "Добавь короткое видео",
-    helper: "Можно загрузить короткий proof или оставить честный комментарий для MVP.",
+    helper: "Можно загрузить короткий proof или оставить честный комментарий о результате.",
     examples: ["Сделал подход полностью", "Записал короткий proof", "Завершил без пауз"],
   },
   text: {
     title: "Опиши, что сделал",
-    helper: "Одного честного предложения достаточно, чтобы закрыть MVP-proof.",
+    helper: "Одного честного предложения достаточно, чтобы закрыть день.",
     examples: ["Сделал полностью", "Закрыл задачу без отвлечений", "Результат готов"],
   },
   timer: {
     title: "Подтверди фокус-сессию",
-    helper: "Для MVP достаточно комментария. Позже здесь будет настоящий таймер и автопроверка.",
+    helper: "Напиши короткое подтверждение или выбери быстрый proof. Главное — честно зафиксировать выполнение.",
     examples: ["30 минут без телефона", "Фокус-режим включён", "Не отвлекался до конца"],
   },
 };
@@ -197,7 +197,7 @@ export function UploadProof({ quest }: UploadProofProps) {
             Ты уже сделал ход. Теперь брось вызов другу: пусть повторит твой streak и войдёт в squad.
           </p>
           <div className="mt-5 rounded-[28px] border border-lime-200/18 bg-lime-200/[0.07] p-4 text-left">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-lime-100/74">Invite code</p>
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-lime-100/74">Код squad</p>
             <p className="mt-2 text-2xl font-black text-white">{mockSquad.inviteCode}</p>
             <p className="mt-1 text-sm leading-5 text-white/56">
               “Я закрыл день в LOCKIN. Сможешь повторить мой streak?”
@@ -205,9 +205,9 @@ export function UploadProof({ quest }: UploadProofProps) {
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
             <InviteFriendButton className="w-full" inviteCode={mockSquad.inviteCode} />
-            <LiquidButton className="w-full" href="/share" variant="secondary">
-              Открыть share card
-            </LiquidButton>
+          <LiquidButton className="w-full" href="/share" variant="secondary">
+            Открыть карточку
+          </LiquidButton>
             <LiquidButton className="w-full" href="/squad" variant="secondary">
               Открыть squad
             </LiquidButton>

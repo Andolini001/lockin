@@ -29,7 +29,7 @@ export default function Home() {
         <section className="space-y-7">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-sm font-semibold text-cyan-100 shadow-[0_18px_60px_rgba(34,211,238,0.12)] backdrop-blur-2xl">
             <Sparkles className="h-4 w-4 text-lime-300" />
-            LOCKIN MVP
+            LOCKIN
           </div>
 
           <div className="space-y-5">
@@ -45,7 +45,7 @@ export default function Home() {
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <LiquidButton href="/dashboard" icon={<ArrowRight className="h-5 w-5" />}>
-              Открыть MVP
+              Начать день
             </LiquidButton>
             <LiquidButton href="/share" icon={<Camera className="h-5 w-5" />} variant="secondary">
               Посмотреть сторис
@@ -111,7 +111,7 @@ export default function Home() {
                   <div className="relative z-10 flex flex-col items-center">
                     <ProgressRing value={68} label={`LVL ${mockUser.level}`} />
                     <span className="mt-3 text-center text-xs text-[var(--text-muted)]">
-                      {xpToNextLevel(mockUser.xp)} XP до апа
+                      {xpToNextLevel(mockUser.xp)} XP до уровня
                     </span>
                   </div>
                 </GlassCard>

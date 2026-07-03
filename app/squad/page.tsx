@@ -22,15 +22,15 @@ export default function SquadPage() {
               <h2 className="mt-2 text-4xl font-black leading-tight text-white">
                 вы получите x2 XP.
               </h2>
-              <div className="mt-6 grid grid-cols-3 gap-3">
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 <div className="premium-stat rounded-[26px] p-4">
-                  <p className="text-xs text-white/45">Weekly XP</p>
+                  <p className="text-xs text-white/45">XP за неделю</p>
                   <p className="mt-2 text-2xl font-black text-white">
                     {mockSquad.weeklyXp.toLocaleString("ru-RU")}
                   </p>
                 </div>
                 <div className="premium-stat rounded-[26px] p-4">
-                  <p className="text-xs text-white/45">Squad streak</p>
+                  <p className="text-xs text-white/45">Серия squad</p>
                   <p className="mt-2 inline-flex items-center gap-1 text-2xl font-black text-white">
                     <Flame className="h-5 w-5 text-orange-300" />
                     {mockSquad.streak}
@@ -49,11 +49,11 @@ export default function SquadPage() {
                   <div>
                     <p className="text-sm font-black text-white">
                       {squadProgress.isComplete
-                        ? `x${squadProgress.bonusMultiplier} XP bonus активирован`
+                        ? `x${squadProgress.bonusMultiplier} XP уже активен`
                         : `Ещё ${squadProgress.remaining} участника до x${squadProgress.bonusMultiplier} XP`}
                     </p>
                     <p className="mt-1 text-xs leading-5 text-white/50">
-                      Mock-сценарий: {squadProgress.completed}/{squadProgress.total} участников закрыли день.
+                      Сегодня уже {squadProgress.completed}/{squadProgress.total} участников закрыли день.
                     </p>
                   </div>
                   <span className="premium-badge shrink-0">{squadProgress.percent}%</span>
@@ -67,7 +67,7 @@ export default function SquadPage() {
               </div>
 
               <div className="premium-stat mt-6 rounded-[28px] p-4">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/45">Invite code</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/45">Код squad</p>
                 <div className="mt-2 flex items-center justify-between gap-3">
                   <p className="text-2xl font-black text-white">{mockSquad.inviteCode}</p>
                   <Copy className="h-5 w-5 text-cyan-100" />

@@ -37,10 +37,10 @@ export function SquadProgressCard({ progress, squad }: SquadProgressCardProps) {
           <p className="inline-flex items-center gap-2 text-sm font-black text-white">
             <Flame className="h-4 w-4 text-orange-300" />
             {progress.isComplete
-              ? `x${progress.bonusMultiplier} XP bonus активирован`
-              : `Ещё ${progress.remaining} до x${progress.bonusMultiplier} XP bonus`}
+              ? `x${progress.bonusMultiplier} XP уже активен`
+              : `Ещё ${progress.remaining} до x${progress.bonusMultiplier} XP`}
           </p>
-          <p className="mt-1 text-xs leading-5 text-white/50">Invite code: {squad.inviteCode}</p>
+          <p className="mt-1 text-xs leading-5 text-white/50">Код squad: {squad.inviteCode}</p>
         </div>
 
         <div className="mt-4 grid gap-3 sm:grid-cols-2">

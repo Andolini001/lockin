@@ -46,7 +46,7 @@ export default function QuestsPage() {
           <div className="relative z-10">
             <p className="text-sm font-black text-cyan-100">Выбери один квест</p>
             <h2 className="mt-1 text-base font-black leading-snug text-white sm:text-2xl">
-              “Взять квест” откроет экран выполнения.
+              Нажми “Взять квест”, сделай действие и отправь короткий proof.
             </h2>
             <div className="mt-3 grid grid-cols-3 gap-2">
               {[

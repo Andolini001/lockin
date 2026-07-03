@@ -31,7 +31,7 @@ export default function DashboardPage() {
         <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <GlassCard className="overflow-hidden p-6">
             <div className="relative z-10">
-              <div className="mb-8 flex items-center justify-between gap-4">
+              <div className="mb-5 flex items-center justify-between gap-4 sm:mb-8">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.2em] text-lime-200">
                     Квест дня
@@ -45,29 +45,29 @@ export default function DashboardPage() {
                 </div>
               </div>
 
-              <p className="max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
+              <p className="max-w-2xl text-base leading-7 text-[var(--text-muted)] sm:text-lg sm:leading-8">
                 {mockDailyQuest.description}
               </p>
 
-              <div className="mt-6 grid gap-2 sm:grid-cols-3">
+              <div className="mt-5 grid grid-cols-3 gap-2 sm:mt-6">
                 {[
                   { Icon: Play, label: "Возьми квест", step: "1" },
                   { Icon: CheckCircle2, label: "Сделай действие", step: "2" },
                   { Icon: FileCheck2, label: "Отправь proof", step: "3" },
                 ].map(({ Icon, label, step }) => (
-                  <div className="premium-stat rounded-[22px] p-3" key={label}>
-                    <div className="flex items-center gap-2">
+                  <div className="premium-stat rounded-[20px] p-2.5 sm:rounded-[22px] sm:p-3" key={label}>
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                       <span className="grid h-7 w-7 place-items-center rounded-full bg-lime-300/16 text-xs font-black text-lime-100">
                         {step}
                       </span>
                       <Icon className="h-4 w-4 text-cyan-100" />
                     </div>
-                    <p className="mt-2 text-sm font-black text-white">{label}</p>
+                    <p className="mt-2 text-[0.72rem] font-black leading-4 text-white sm:text-sm">{label}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-5 flex flex-col gap-3 sm:mt-7 sm:flex-row">
                 <QuestAcceptButton quest={mockDailyQuest} />
                 <LiquidButton href="/quests" icon={<Camera className="h-5 w-5" />} variant="secondary">
                   Выбрать другой
@@ -102,7 +102,7 @@ export default function DashboardPage() {
             </div>
           </GlassCard>
 
-          <div className="grid gap-5 pt-40 lg:pt-0">
+          <div className="grid gap-5">
             <GlassCard className="p-5">
               <div className="relative z-10">
                 <div className="mb-5 flex items-center justify-between">
