@@ -95,27 +95,27 @@ const nodeStyles: Record<SkillStatus, string> = {
 };
 
 const growthNodes: GrowthNode[] = [
-  { id: "daily", skillId: "core_daily_chain", layer: "root", size: "small", x: 32, y: 86 },
-  { id: "deep", skillId: "focus_deep_work", layer: "root", size: "small", x: 50, y: 80 },
-  { id: "signal", skillId: "squad_signal", layer: "root", size: "small", x: 68, y: 86 },
-  { id: "shield", skillId: "core_streak_shield", layer: "trunk", size: "medium", x: 38, y: 61 },
-  { id: "phone", skillId: "focus_phone_lock", layer: "trunk", size: "large", x: 53, y: 49 },
-  { id: "x2", skillId: "squad_x2", layer: "trunk", size: "medium", x: 69, y: 64 },
-  { id: "legend", skillId: "core_legend_run", layer: "canopy", size: "small", x: 25, y: 28 },
-  { id: "flow", skillId: "focus_flow_state", layer: "canopy", size: "medium", x: 54, y: 18 },
-  { id: "raid", skillId: "squad_raid", layer: "canopy", size: "small", x: 78, y: 31 },
+  { id: "daily", skillId: "core_daily_chain", layer: "root", size: "small", x: 38, y: 82 },
+  { id: "deep", skillId: "focus_deep_work", layer: "root", size: "small", x: 50, y: 75 },
+  { id: "signal", skillId: "squad_signal", layer: "root", size: "small", x: 62, y: 82 },
+  { id: "shield", skillId: "core_streak_shield", layer: "trunk", size: "medium", x: 40, y: 58 },
+  { id: "phone", skillId: "focus_phone_lock", layer: "trunk", size: "large", x: 50, y: 44 },
+  { id: "x2", skillId: "squad_x2", layer: "trunk", size: "medium", x: 62, y: 58 },
+  { id: "legend", skillId: "core_legend_run", layer: "canopy", size: "small", x: 32, y: 24 },
+  { id: "flow", skillId: "focus_flow_state", layer: "canopy", size: "medium", x: 50, y: 14 },
+  { id: "raid", skillId: "squad_raid", layer: "canopy", size: "small", x: 68, y: 24 },
 ];
 
 const growthPaths: GrowthPath[] = [
-  { d: "M50 92 C44 86 37 90 32 86", targetSkillId: "core_daily_chain" },
-  { d: "M50 92 C50 88 50 84 50 80", targetSkillId: "focus_deep_work" },
-  { d: "M50 92 C56 86 63 90 68 86", targetSkillId: "squad_signal" },
-  { d: "M50 80 C47 72 43 66 38 61", targetSkillId: "core_streak_shield" },
-  { d: "M50 80 C51 68 52 58 53 49", targetSkillId: "focus_phone_lock" },
-  { d: "M50 80 C58 72 64 68 69 64", targetSkillId: "squad_x2" },
-  { d: "M38 61 C31 51 27 40 25 28", targetSkillId: "core_legend_run" },
-  { d: "M53 49 C53 38 54 28 54 18", targetSkillId: "focus_flow_state" },
-  { d: "M69 64 C74 54 78 43 78 31", targetSkillId: "squad_raid" },
+  { d: "M50 88 C45 84 42 83 38 82", targetSkillId: "core_daily_chain" },
+  { d: "M50 88 C50 84 50 79 50 75", targetSkillId: "focus_deep_work" },
+  { d: "M50 88 C55 84 58 83 62 82", targetSkillId: "squad_signal" },
+  { d: "M50 75 C47 68 44 63 40 58", targetSkillId: "core_streak_shield" },
+  { d: "M50 75 C50 64 50 53 50 44", targetSkillId: "focus_phone_lock" },
+  { d: "M50 75 C53 68 58 63 62 58", targetSkillId: "squad_x2" },
+  { d: "M40 58 C36 48 33 36 32 24", targetSkillId: "core_legend_run" },
+  { d: "M50 44 C50 34 50 23 50 14", targetSkillId: "focus_flow_state" },
+  { d: "M62 58 C65 48 67 36 68 24", targetSkillId: "squad_raid" },
 ];
 
 const rootPrinciples = ["ежедневность", "proof", "squad"];
@@ -168,26 +168,28 @@ export function CharacterProgression({ build, level, xpProgress }: CharacterProg
           </div>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-4">
+        <div className="grid gap-3 md:grid-cols-2">
           {build.stats.map((stat) => {
             const quality = qualityCopy[stat.id];
             const Icon = quality.Icon;
 
             return (
-              <div className="mirror-panel pressable rounded-[28px] p-4" key={stat.id}>
-                <div className="flex items-start gap-3">
+              <div className="mirror-panel pressable min-h-[132px] rounded-[28px] p-4 sm:p-5" key={stat.id}>
+                <div className="grid grid-cols-[44px_minmax(0,1fr)] items-start gap-3">
                   <div className={["grid h-11 w-11 shrink-0 place-items-center rounded-2xl border", quality.accent].join(" ")}>
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="font-black text-white">{quality.quality}</p>
-                      <p className="text-xs font-black text-white/52">LVL {stat.level}</p>
+                    <div className="flex min-w-0 items-start justify-between gap-3">
+                      <p className="min-w-0 text-base font-black leading-5 text-white [overflow-wrap:anywhere]">{quality.quality}</p>
+                      <p className="shrink-0 rounded-full bg-white/[0.07] px-2 py-1 text-[0.65rem] font-black leading-none text-white/52">
+                        LVL {stat.level}
+                      </p>
                     </div>
                     <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
                       <div className={["h-full rounded-full", quality.bar].join(" ")} style={{ width: `${stat.progress}%` }} />
                     </div>
-                    <p className="mt-2 text-xs leading-5 text-white/48">{quality.result}</p>
+                    <p className="mt-2 text-xs leading-5 text-white/50">{quality.result}</p>
                   </div>
                 </div>
               </div>
@@ -212,7 +214,7 @@ export function CharacterProgression({ build, level, xpProgress }: CharacterProg
             <div className="absolute inset-x-12 top-7 h-28 rounded-full bg-lime-200/10 blur-3xl" />
             <div className="absolute inset-x-16 bottom-2 h-24 rounded-full bg-cyan-200/10 blur-3xl" />
 
-            <div className="relative mx-auto aspect-[0.72/1] min-h-[520px] w-full max-w-[560px] sm:min-h-[680px]">
+            <div className="relative mx-auto h-[430px] w-full max-w-[640px] sm:h-[500px] lg:h-[520px]">
               <svg aria-hidden="true" className="absolute inset-0 h-full w-full" viewBox="0 0 100 100">
                 <defs>
                   <linearGradient id="growth-lit" x1="0" x2="0" y1="1" y2="0">
@@ -227,7 +229,7 @@ export function CharacterProgression({ build, level, xpProgress }: CharacterProg
                 </defs>
 
                 <path
-                  d="M50 92 C49 78 51 67 52 55 C53 42 52 29 54 17"
+                  d="M50 88 C49 74 50 59 50 44 C50 32 50 22 50 14"
                   fill="none"
                   stroke="url(#growth-lit)"
                   strokeLinecap="round"
@@ -235,7 +237,7 @@ export function CharacterProgression({ build, level, xpProgress }: CharacterProg
                   opacity="0.52"
                 />
                 <path
-                  d="M50 92 C49 78 51 67 52 55 C53 42 52 29 54 17"
+                  d="M50 88 C49 74 50 59 50 44 C50 32 50 22 50 14"
                   fill="none"
                   stroke="rgba(255,255,255,0.42)"
                   strokeLinecap="round"
@@ -261,10 +263,6 @@ export function CharacterProgression({ build, level, xpProgress }: CharacterProg
                 })}
               </svg>
 
-              <div className="absolute left-[15%] top-[56%] z-10 hidden -translate-y-1/2 rounded-full border border-white/14 bg-white/[0.07] px-3 py-2 text-[0.64rem] font-black uppercase tracking-[0.18em] text-white/42 shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur-2xl sm:block">
-                ствол
-              </div>
-
               {growthNodes.map((node) => {
                 const skill = skillById.get(node.skillId);
                 if (!skill) return null;
@@ -274,10 +272,10 @@ export function CharacterProgression({ build, level, xpProgress }: CharacterProg
                 const isSelected = selectedSkill?.id === skill.id;
                 const sizeClass =
                   node.size === "large"
-                    ? "h-[68px] w-[68px] sm:h-20 sm:w-20"
+                    ? "h-16 w-16 sm:h-[72px] sm:w-[72px]"
                     : node.size === "medium"
-                      ? "h-14 w-14 sm:h-16 sm:w-16"
-                      : "h-11 w-11 sm:h-[52px] sm:w-[52px]";
+                      ? "h-12 w-12 sm:h-14 sm:w-14"
+                      : "h-10 w-10 sm:h-12 sm:w-12";
 
                 return (
                   <button
